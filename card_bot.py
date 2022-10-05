@@ -19,6 +19,7 @@ card_type_keybaord = types.ReplyKeyboardMarkup(resize_keyboard=True)
 card_type_keybaord.row(
     types.KeyboardButton(text='VISA'),
     types.KeyboardButton(text='Mastercard'),
+    types.KeyboardButton(text='Случайная'),
    )
 # обработчик команды '/start'
 @bot.message_handler(commands=['start'])
@@ -39,6 +40,8 @@ def message_handler(message: types.Message):
         card_type = 'visa'
     elif message.text == 'Mastercard':
         card_type = 'mastercard'
+    elif message.text == 'Случайная':
+        card_type = None
     else:
         # если текст не совпал ни с одной из кнопок 
         # выводим ошибку
